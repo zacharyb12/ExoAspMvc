@@ -1,39 +1,47 @@
-﻿<h1 class="text-center">Contact</h1>
+﻿@model List<Contact>
 
-<div class="bg-transparent align-align-center text-center  m-auto">
-    voici une brève presentation de la personne : 
-    <div class="bg-dark bg-opacity-50 text-center text-white align-center w-25 m-auto rounded-2">
-   <p>Nom : Boualem</p>
-   <p>Prenom : Zachary</p>
-    <p>Adresse : Nivelles </p>
+<h1 class="text-center">Contacts</h1>
+
+<div class="bg-transparent text-center m-auto">
+    <p>Voici une brève présentation de la personne :</p>
+    <div class="bg-dark bg-opacity-50 text-center text-white w-25 m-auto rounded-2">
+        <p>Nom : Boualem</p>
+        <p>Prénom : Zachary</p>
+        <p>Adresse : Nivelles</p>
     </div>
-
 </div>
 
-<div class="w-75 bg-dark bg-opacity-50 align-align-center text-center m-auto rounded-2">
+<div class="w-75 bg-dark bg-opacity-50 text-center m-auto rounded-2 p-3">
+    <a class="btn btn-primary" asp-controller="Contact" asp-action="AddContact">Add Contact</a>
 
-    <table class="table table-bordered  bg-light  w-75 align-content-center m-auto rounded-2">
-       <tr>
-        <th >Id</th>
-        <th >Name</th>
-        <th>Email</th>
-        <th>Role</th>
-    </tr>
-        
-        //foreach user
-    <tr>
-        <td>user id</td>
-        <td>user name</td>
-        <td>user email</td>
-        <td>user role</td>
-
-        <td >
-                <button class="btn btn-danger m-3 rounded-2">edit</button>
-                <button class="btn btn-danger m-3 rounded-2">Delete</button>
-        </td>
-
-    </tr>
-
-</table>
-
+    <table class="table table-bordered bg-light w-75 m-auto rounded-2 mt-3">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Firstname</td>
+                    <td>@item.Lastname</td>
+                    <td>@item.Email</td>
+                    <td>@item.Password</td>
+                    <td>
+                        <div class="d-flex justify-content-center">
+                            <a class="btn btn-warning m-1 rounded-2" asp-controller="Contact" asp-action="Details" asp-route-id="@item.Id">Edit</a>
+                            <a class="btn btn-danger m-1 rounded-2" asp-controller="Contact" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>

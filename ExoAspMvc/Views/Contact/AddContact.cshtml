@@ -1,0 +1,34 @@
+﻿    @model CreateContact;
+
+
+<h1 class="text-center">Add Contact</h1>
+
+
+<form method="post" class="align-center">
+    <div class="text-center bg-dark bg-opacity-50 align-center w-50 m-auto text-white rounded-2">
+
+        <div class="form-group">
+            <label class="align-center w-50 m-auto" id="FirstnameLabel">Firstname</label>
+            <input class="align-center w-50 m-auto form-control text-center" id="Firstname" name="Firstname" type="text" />
+        </div>
+
+        <div class="form-group">
+            <label class="align-center w-50 m-auto" id="LastnameLabel">Lastname</label>
+            <input class="align-center w-50 m-auto form-control text-center" id="Lastname" name="Lastname" v type="text" />
+        </div>
+
+        <div class="form-group">
+            <label class="align-center w-50 m-auto" id="emailLabel">Email</label>
+            <input class="align-center w-50 m-auto form-control text-center" id="email" name="Email" type="text" />
+        </div>
+
+        <div class="form-group">
+            <label class="align-center w-50 m-auto" id="passwordLabel">Password</label>
+            <input class="align-center w-50 m-auto form-control text-center" id="password" name="Password" type="password" />
+        </div>
+
+
+    <input class="w-50 btn btn-danger  mt-3 rounded-2" type="submit" href="/Contact" value="Submit">
+
+</div>
+</form>

@@ -1,1 +1,35 @@
-﻿<h1 class="text-center">Contact Details</h1>
+﻿@model Contact
+
+<h1 class="text-center">Contact Details</h1>
+
+<form method="post">
+    <div class="text-center bg-dark bg-opacity-50 align-center w-50 m-auto text-white rounded-2">
+        <div class="form-group ">
+            <label class="align-center w-50 m-auto" id="IdLabel">Id</label>
+            <input class="align-center w-50 m-auto text-center form-control" id="Id" value="@Model.Id" type="text" readonly />
+        </div>
+
+        <div class="form-group">
+            <label class="align-center w-50 m-auto" id="FirstnameLabel">Firstname</label>
+            <input class="align-center w-50 m-auto form-control text-center" id="Firstname" name="Firstname" value="@Model.Firstname" type="text" />
+        </div>
+
+        <div class="form-group">
+            <label class="align-center w-50 m-auto" id="LastnameLabel">Lastname</label>
+            <input class="align-center w-50 m-auto form-control text-center" id="Lastname" name="Lastname" value="@Model.Lastname" type="text" />
+        </div>
+
+        <div class="form-group">
+            <label class="align-center w-50 m-auto" id="emailLabel">Email</label>
+            <input class="align-center w-50 m-auto form-control text-center" id="email" name="Email" value="@Model.Email" type="text" />
+        </div>
+
+        <div class="form-group">
+            <label class="align-center w-50 m-auto" id="passwordLabel">Password</label>
+            <input class="align-center w-50 m-auto form-control text-center" id="password" name="Password" value="@Model.Password" type="password" />
+        </div>
+
+        <button class="w-25 btn btn-danger m-3 rounded-2" type="submit" name="action" value="Delete">Delete</button>
+        <button class="w-25 btn btn-success m-3 rounded-2" type="submit" name="action" value="Save">Save</button>
+    </div>
+</form>
