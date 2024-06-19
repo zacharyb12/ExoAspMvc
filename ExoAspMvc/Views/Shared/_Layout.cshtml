@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ExoAspMvc.styles.css" asp-append-version="true" />
+    @await RenderSectionAsync("Styles",required:false) 
 </head>
 <body>
 
@@ -24,15 +25,46 @@
                     <ul class="navbar-nav flex-grow-1">
 
                         <li class="nav-item">
-                            <a class="nav-link text-white  bg-dark bg-opacity-50 rounded-2 m-2 " asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-white  bg-dark bg-opacity-50 rounded-2 m-2 " asp-controller="Home" asp-action="Index">Home</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link text-white  bg-dark bg-opacity-50 rounded-2 m-2" asp-area="" asp-controller="Contact" asp-action="Index">Contact</a>
+                            <a class="nav-link text-white  bg-dark bg-opacity-50 rounded-2 m-2"  asp-controller="Contact" asp-action="Index">Contact</a>
                         </li>
 
+                        <li class="nav-item">
+                            <a class="nav-link text-white  bg-dark bg-opacity-50 rounded-2 m-2" asp-controller="Auth" asp-action="Details" asp-route-id="@ViewContext.HttpContext.Session.GetInt32("Id")">UserDetails</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-white  bg-dark bg-opacity-50 rounded-2 m-2" asp-controller="Chat" asp-action="Index">Chat</a>
+                        </li>
+
+
                         <li class="nav-item me-0 ms-auto">
-                            <a class="nav-link text-white  bg-dark bg-opacity-50 rounded-2 m-2" asp-area="" asp-controller="Auth" asp-action="Index">Authentification</a>
+                        <li class="nav-item me-0 ms-auto">
+                                @if (ViewContext.HttpContext.Session.GetString("Role") != null)
+                                {
+                                    <img width="50" height="50" src="https://img.icons8.com/bubbles/50/login-rounded-right.png" alt="login-rounded-right" />
+                                }
+                                else
+                                {
+                                    <img width="50" height="50" src="https://img.icons8.com/clouds/100/logout-rounded.png" alt="logout-rounded" />  
+                                }
+
+                        </li>
+                            @if (ViewContext.HttpContext.Session.GetInt32("Role") != null)
+                            {
+                            <a type="button" class="btn btn-primary" asp-controller="Auth" asp-action="Logout">
+                                Logout
+                            </a>
+                            }
+                            else
+                            {
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                Login
+                            </button>
+                            }
                         </li>
 
                     </ul>
@@ -57,3 +89,24 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <li class="dropdown-item">
+                <a class="nav-link text-dark" asp-controller="Auth" asp-action="Login">Login</a>
+            </li>
+
+            <li class="dropdown-item">
+                <a class="nav-link text-dark" asp-controller="Auth" asp-action="Register">Register</a>
+            </li>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>

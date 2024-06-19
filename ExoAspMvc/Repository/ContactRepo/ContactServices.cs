@@ -1,16 +1,17 @@
 ﻿using ExoAspMvc.Models;
+using ExoAspMvc.Models.Contact;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using System.Data;
 
 namespace ExoAspMvc.Repository.ContactRepo
 {
-    public class ContactService : IContactService
+    public class ContactServices : IContactServices
     {
 
         private readonly SqlConnection _connection;
 
-        public ContactService(SqlConnection connection)
+        public ContactServices(SqlConnection connection)
         {
             _connection = connection;
         }
@@ -103,7 +104,6 @@ namespace ExoAspMvc.Repository.ContactRepo
             }
         }
 
-
         public void AddContact(CreateContact contact)
         {
             using(SqlCommand cmd = _connection.CreateCommand())
@@ -123,7 +123,6 @@ namespace ExoAspMvc.Repository.ContactRepo
             }
         }
 
-        [HttpPost]
         public void Delete(int Id)
         {
             using( SqlCommand cmd = _connection.CreateCommand())
@@ -159,5 +158,6 @@ namespace ExoAspMvc.Repository.ContactRepo
                 _connection.Close();
             }
         }
+
     }
 }

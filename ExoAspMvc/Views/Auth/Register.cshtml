@@ -1,0 +1,51 @@
+﻿@using ExoAspMvc.Models.User
+@model CreateUser
+
+<h1 class="text-center">Register</h1>
+
+<div class="text-center bg-dark bg-opacity-50 w-50 m-auto text-white rounded-2">
+
+        <div class="bg-transparent w-75 m-auto rounded-2">
+    <form method="post" class="align-center">
+
+            <div class="form-group">
+                <label asp-for="Firstname" class="control-label"></label>
+                <input asp-for="Firstname" class="form-control" />
+                <span asp-validation-for="Firstname" class="text-danger" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Lastname" class="control-label"></label>
+                <input asp-for="Lastname" class="form-control" />
+                <span asp-validation-for="Lastname" class="text-danger" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Pseudo" class="control-label"></label>
+                <input asp-for="Pseudo" class="form-control" />
+                <span asp-validation-for="Pseudo" class="text-danger" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="PasswordCheck" class="control-label"></label>
+                <input asp-for="PasswordCheck" class="form-control" />
+                <span asp-validation-for="PasswordCheck" class="text-danger" />
+            </div>
+
+        <input class="btn btn-danger mt-3 rounded-2 w-50" type="submit" asp-action="Register" value="Submit" />
+    </form>
+        </div>
+
+</div>

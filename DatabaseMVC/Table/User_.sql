@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[User_]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY,
+	Pseudo VARCHAR(50) NOT NULL UNIQUE,
+	Email VARCHAR(50) NOT NULL UNIQUE,
+	Password VARBINARY(64) NOT  NULL,
+	Salt varchar(50) NOT NULL,
+    [Firstname] VARCHAR(50) NOT NULL, 
+    [Lastname] VARCHAR(50) NOT NULL
+
+	CONSTRAINT CK_Email CHECK (Email LIKE '%@%.%'), 
+    [Role] INT NOT NULL DEFAULT 2, 
+)

@@ -1,8 +1,9 @@
 ﻿using ExoAspMvc.Models;
+using ExoAspMvc.Models.Contact;
 
 namespace ExoAspMvc.Repository.ContactRepo
 {
-    public interface IContactService
+    public interface IContactServices
     {
         List<Contact> GetContacts();
 

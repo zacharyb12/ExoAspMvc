@@ -1,16 +1,18 @@
 ﻿using ExoAspMvc.Models;
+using ExoAspMvc.Models.Contact;
 using ExoAspMvc.Repository.ContactRepo;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.ComponentModel.DataAnnotations;
 
 namespace ExoAspMvc.Controllers
 {
     public class ContactController : Controller
     {
-        private readonly IContactService _service;
+        private readonly IContactServices _service;
 
-        public ContactController(IContactService service) => _service = service;
+        public ContactController(IContactServices service)
+        {
+            _service = service;
+        }
 
         public IActionResult Index()
         {
@@ -30,9 +32,9 @@ namespace ExoAspMvc.Controllers
         }
 
 
-        public IActionResult Details(Contact c)
+        public IActionResult Details(int Id)
         {
-            Contact contact = _service.GetById(c.Id);
+            Contact contact = _service.GetById(Id);
             return View(contact);
         }
 
@@ -50,7 +52,7 @@ namespace ExoAspMvc.Controllers
                 return RedirectToAction("Index");
             }
 
-            return View("Index");
+            return View(contact);
         }
 
 

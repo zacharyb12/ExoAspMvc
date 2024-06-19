@@ -1,4 +1,5 @@
-﻿@model List<Contact>
+﻿@using ExoAspMvc.Models.Contact
+@model List<Contact>
 
 <h1 class="text-center">Contacts</h1>
 
@@ -11,7 +12,7 @@
     </div>
 </div>
 
-<div class="w-75 bg-dark bg-opacity-50 text-center m-auto rounded-2 p-3">
+<div class="w-100 bg-dark bg-opacity-50 text-center m-auto rounded-2 p-3">
     <a class="btn btn-primary" asp-controller="Contact" asp-action="AddContact">Add Contact</a>
 
     <table class="table table-bordered bg-light w-75 m-auto rounded-2 mt-3">
@@ -35,10 +36,10 @@
                     <td>@item.Email</td>
                     <td>@item.Password</td>
                     <td>
-                        <div class="d-flex justify-content-center">
-                            <a class="btn btn-warning m-1 rounded-2" asp-controller="Contact" asp-action="Details" asp-route-id="@item.Id">Edit</a>
-                            <a class="btn btn-danger m-1 rounded-2" asp-controller="Contact" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                        </div>
+                            <div class="d-flex justify-content-center">
+                                <a class="btn btn-warning m-1 rounded-2" asp-controller="Contact" asp-action="Details" asp-route-id="@item.Id">Edit</a>
+                                <a class="btn btn-danger m-1 rounded-2" asp-controller="Contact" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                            </div>
                     </td>
                 </tr>
             }
