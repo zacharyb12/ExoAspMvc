@@ -2,33 +2,36 @@
 
 <div class="text-center">
 
+    <div class="card shadow w-25 m-auto opacity-50 bg-dark text-white">
     <h1>Asp MVC</h1>
+    </div>
 
-    <div>
+        <div class="w-25 m-auto mt-3">
         <h3>Menu</h3>
-
-        <div>
-            Bienvenu sur le menu de presentation
         </div>
 
-   </div>
+        <div class="pt-3">
+            <h4 class="m-auto w-25 mt-3">
+            Bienvenu sur le menu de presentation
+            </h4>
+        </div>
+
 
     <div>
 
         <p>@ViewContext.HttpContext.Session.GetInt32("Id")</p>
-        <p>Bienvenue @ViewContext.HttpContext.Session.GetString("Pseudo")</p>
-        <p>Bienvenue @ViewContext.HttpContext.Session.GetString("Role")</p>
-        <p>Bienvenue @ViewContext.HttpContext.Session.</p>
+        <p>@ViewContext.HttpContext.Session.GetString("Pseudo")</p>
+        <p>@ViewContext.HttpContext.Session.GetString("Role")</p>
 
+        <div class="card shadow mt-5 w-25 m-auto">
         <p>UserAccount</p>
         <p>john.doe@example.com</p>
         <p>Test1234=</p>
-        
-        
+        </div>
 
     </div>
 
-    <div>
-        <img src="./images/3271236_481602-PH02WC-347.jpg" alt="Productivity images" width="500" />
+    <div class="card shadow w-50 m-auto mt-5">
+        <img class="m-auto" src="./images/3271236_481602-PH02WC-347.jpg" alt="Productivity images" width="500" />
     </div>
 
